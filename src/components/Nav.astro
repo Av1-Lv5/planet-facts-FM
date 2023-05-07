@@ -1,0 +1,119 @@
+---
+// Data
+import { PlanetData } from "../data/planets.js";
+
+// Types
+import type { PlanetObj } from "../types/PlanetObj";
+
+// Icons
+import iconHamburger from "/assets/icon-hamburger.svg";
+
+// Props
+const { currentPlanetObj } = Astro.props;
+---
+
+<div>
+	<img class="hamburger" src={iconHamburger} alt="hamburger menu icon" />
+	<nav>
+		{
+			PlanetData.map((planet: PlanetObj) => (
+				<a
+					href={`/${planet.name}`}
+					class={`nav-item ${
+						planet === currentPlanetObj ? "current" : null
+					}`}
+				>
+					{planet.name}
+				</a>
+			))
+		}
+	</nav>
+</div>
+
+<script>
+	// Selectors
+	const hamburger = document.querySelector(".hamburger") as HTMLImageElement;
+	const navMenu = document.querySelector("nav");
+
+	// EventListners
+	hamburger.addEventListener("click", toggleNavMenuVisibility);
+
+	// Functions
+	function toggleNavMenuVisibility() {
+		navMenu?.classList.toggle("show");
+	}
+</script>
+
+<style>
+	/* mobile */
+	nav {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		right: 0;
+		top: 71px;
+		background-color: var(--color-bg);
+		width: 100vw;
+		z-index: 1;
+	}
+	nav.show {
+		display: flex;
+	}
+	nav a.current {
+		color: var(--accentColor);
+		font-weight: bold;
+	}
+	nav a {
+		padding: 20px 25px;
+		text-decoration: none;
+		color: white;
+		font-weight: 500;
+		font-size: 1.4rem;
+		opacity: 0.8;
+		border-bottom: 1px solid var(--color-border);
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+	nav a::after {
+		content: url("/assets/icon-chevron.svg");
+		padding: 0 50px;
+		position: absolute;
+		right: 0;
+	}
+	.nav-item:hover {
+		font-weight: bold;
+	}
+	.hamburger {
+		cursor: pointer;
+	}
+
+	/* tablet */
+	@media screen and (min-width: 750px) {
+		nav {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			position: static;
+			width: auto;
+		}
+		nav a {
+			padding: 10px 15px;
+			border-bottom: none;
+		}
+		nav a::after,
+		nav a::before {
+			content: none;
+		}
+		.hamburger {
+			display: none;
+		}
+	}
+	/* Desktop */
+	@media screen and (min-width: 1024px) {
+		nav {
+			width: auto;
+			justify-content: flex-end;
+		}
+	}
+</style>

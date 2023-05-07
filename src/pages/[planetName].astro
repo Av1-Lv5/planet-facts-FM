@@ -1,0 +1,38 @@
+---
+// data
+import { PlanetData } from "../data/planets.js";
+
+// Layout
+import Layout from "../layouts/Layout.astro";
+
+// components
+import AllStats from "../components/AllStats.astro";
+import Hero from "../components/Hero/Hero";
+
+// types
+import type { PlanetObj } from "../types/PlanetObj";
+export interface Props {
+	planetObj: PlanetObj;
+}
+
+export function getStaticPaths() {
+	return PlanetData.map((planet) => ({
+		params: {
+			planetName: planet.name,
+		},
+		props: {
+			planetObj: planet,
+		},
+	}));
+}
+
+// Props
+const { planetObj } = Astro.props as Props;
+---
+
+<Layout planetObj={planetObj}>
+	<main>
+		<Hero currentPlanetObj={planetObj} client:idle />
+		<AllStats currentPlanetObj={planetObj} />
+	</main>
+</Layout>

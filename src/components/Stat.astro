@@ -1,0 +1,35 @@
+---
+// Types
+interface Props {
+    statName: string;
+    statValue: string;
+}
+
+// Props
+const { statName, statValue } = Astro.props as Props;
+---
+
+<div class="stat">
+    <p class="stat-name">{statName}</p>
+    <p class="stat-value">{statValue}</p>
+</div>
+
+<style>
+    .stat {
+        border: 0.5px solid var(--color-border);
+        padding: 25px;
+    }
+    .stat-name,
+    .stat-value {
+        text-transform: uppercase;
+    }
+    .stat-name {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 600;
+    }
+    .stat-value {
+        font-family: Antonio;
+        font-size: 3rem;
+    }
+</style>

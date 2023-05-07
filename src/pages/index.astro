@@ -1,0 +1,22 @@
+---
+/*
+    instead of rewriting '/' with '/earth' in netlify.toml, the data and layout is copy pasted for better initial page load.
+*/
+// Layout
+import Layout from "../layouts/Layout.astro";
+
+// Components
+import AllStats from "../components/AllStats.astro";
+import Hero from "../components/Hero/Hero";
+
+// Data
+import { PlanetData } from "../data/planets.js";
+const earthObj = PlanetData[2];
+---
+
+<Layout planetObj={earthObj}>
+	<main>
+		<Hero currentPlanetObj={earthObj} client:idle />
+		<AllStats currentPlanetObj={earthObj} />
+	</main>
+</Layout>

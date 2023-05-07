@@ -1,0 +1,87 @@
+.planet-img {
+	text-align: center;
+}
+.planet-img img {
+	max-width: 95%;
+	padding: 35px;
+}
+.planet-name {
+	font-family: Antonio;
+	font-size: 4rem;
+	font-weight: 500;
+}
+.planet-content {
+	line-height: 2rem;
+	font-size: 1.4rem;
+	opacity: 0.8;
+}
+.planet-content,
+.planet-name,
+.data-source {
+	margin-bottom: 2.5rem;
+}
+.data-source {
+	opacity: 0.7;
+	font-size: 1.3rem;
+}
+.data-source a {
+	text-decoration: underline;
+	color: white;
+	font-weight: 600;
+}
+.data-source::after {
+	content: url("/assets/icon-source.svg");
+	margin: 5px;
+}
+.data-container {
+	max-width: 550px;
+	text-align: center;
+	margin: auto;
+	grid-area: content;
+	padding: 35px;
+}
+.sub-nav {
+	grid-area: sub-nav;
+}
+
+.planet-img {
+	grid-area: image;
+	margin: auto;
+}
+
+/* tablet */
+@media screen and (min-width: 750px) {
+	section.hero {
+		display: grid;
+		margin: 35px;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"image image"
+			"content sub-nav";
+	}
+	.data-container {
+		text-align: start;
+		padding-inline-start: 0;
+	}
+	.sub-nav {
+		justify-self: end;
+		padding: 0;
+	}
+}
+/* desk */
+@media screen and (min-width: 1024px) {
+	section.hero {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"image content"
+			"image sub-nav";
+		justify-items: end;
+	}
+	.data-container {
+		max-width: 450px;
+		margin: 0;
+		padding-inline-end: 0;
+	}
+}

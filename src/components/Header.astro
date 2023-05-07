@@ -1,0 +1,49 @@
+---
+// Components
+import Nav from "./Nav.astro";
+
+// Props
+const { currentPlanetObj } = Astro.props;
+---
+
+<header>
+	<div>
+		<h1 class="logo">THE PLANETS</h1>
+		<Nav currentPlanetObj={currentPlanetObj} />
+	</div>
+</header>
+
+<style>
+	header .logo {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		font-family: Antonio;
+	}
+	/* mobile */
+	header {
+		border-bottom: 1px solid hsl(0 0% 100% / 0.2);
+	}
+	header > div {
+		display: flex;
+		padding: 1.5rem 3rem;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1240px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	/* tablet */
+	@media screen and (min-width: 750px) {
+		header {
+			flex-direction: column;
+			gap: 25px;
+		}
+	}
+	/* Desktop */
+	@media screen and (min-width: 1024px) {
+		header {
+			flex-direction: row;
+		}
+	}
+</style>

@@ -1,0 +1,38 @@
+---
+// Components
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+// Styles
+import "../styles/global.css";
+
+// types
+import type { PlanetObj } from "../types/PlanetObj";
+interface Props {
+	planetObj: PlanetObj;
+}
+
+const { planetObj } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="/fonts/fonts.css" />
+		<title>Planets facts | {planetObj.name}</title>
+	</head>
+	<body>
+		<Header currentPlanetObj={planetObj} />
+		<slot />
+		<Footer />
+	</body>
+</html>
+
+<style define:vars={{ accentColor: planetObj.color }}>
+	:root {
+		--accentColor: var(--accentColor);
+	}
+</style>

@@ -1,0 +1,42 @@
+:root {
+	--color-white: #fff;
+	--color-bg: hsl(240, 67%, 8%);
+	--color-border: rgba(255, 255, 255, 0.3);
+}
+body {
+	background: url("../assets/background-stars.svg");
+	background-color: var(--color-bg);
+	color: var(--color-white);
+	background-size: 100%;
+	background-repeat: repeat-y;
+	font-family: Spartan;
+	animation: 10s infinite ease-in-out pan-image;
+}
+
+@keyframes pan-image {
+	from {
+		background-position: 0% 0%;
+	}
+	to {
+		background-position: 50% 100%;
+	}
+}
+
+*,
+*::after,
+*::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+html {
+	font-size: 62.5%;
+}
+main {
+	max-width: 1240px;
+	margin-left: auto;
+	margin-right: auto;
+}

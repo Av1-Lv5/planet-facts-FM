@@ -1,0 +1,45 @@
+<footer>
+	<p>
+		Built with <a href="https://astro.build/">Astro</a>
+	</p>
+	<p>
+		Solution to <a
+			href="https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f"
+			>Frontendmentor Challenge</a
+		>
+	</p>
+	<p>
+		Source code <a href="https://github.com/av1-lv5/planet-facts-fem/"
+			>@github</a
+		>
+	</p>
+</footer>
+
+<style>
+	footer {
+		padding: 35px 25px;
+		border-top: 1px solid hsl(0 0% 100% / 0.2);
+	}
+	footer {
+		margin: auto;
+		max-width: 1000px;
+		display: flex;
+		gap: 15px;
+		flex-direction: column;
+	}
+	p {
+		font-size: 1.3rem;
+		text-align: center;
+	}
+	a {
+		color: var(--accentColor);
+		font-weight: bold;
+	}
+	/* Desktop */
+	@media screen and (min-width: 700px) {
+		footer {
+			justify-content: space-between;
+			flex-direction: row;
+		}
+	}
+</style>

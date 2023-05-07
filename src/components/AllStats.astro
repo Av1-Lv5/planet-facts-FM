@@ -1,0 +1,41 @@
+---
+// Components
+import Stat from "../components/Stat.astro";
+
+// Types
+import type { PlanetObj } from "../types/PlanetObj";
+export interface Props {
+	currentPlanetObj: PlanetObj;
+}
+
+// Props
+const { currentPlanetObj }: Props = Astro.props;
+---
+
+<div class="stats-container">
+	<Stat statName="Rotation time" statValue={currentPlanetObj.rotation} />
+	<Stat statName="Revolution time" statValue={currentPlanetObj.revolution} />
+	<Stat statName="Radius" statValue={currentPlanetObj.radius} />
+	<Stat statName="Average Temp" statValue={currentPlanetObj.temperature} />
+</div>
+<style>
+	.stats-container {
+		display: grid;
+		grid-template-columns: repeat(1, minmax(25ch, 1fr));
+		gap: 25px;
+		padding: 35px;
+	}
+
+	/* tablet */
+	@media screen and (min-width: 540px) {
+		.stats-container {
+			grid-template-columns: repeat(2, minmax(170px, 1fr));
+		}
+	}
+	/* desktop */
+	@media screen and (min-width: 1080px) {
+		.stats-container {
+			grid-template-columns: repeat(4, minmax(170px, 1fr));
+		}
+	}
+</style>
