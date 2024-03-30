@@ -1,5 +1,7 @@
 # Planet facts
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8f642b01-5698-497d-9418-9a5e439e5ef4/deploy-status)](https://app.netlify.com/sites/planet-facts-fm-alvs/deploys)
+
 The website is built with astro js and preact js. And is Mobile responsive.
 
 ![Alt text](https://res.cloudinary.com/dz209s6jk/image/upload/v1622211615/Challenges/g9eewklurmolti0smptf.jpg)
@@ -7,6 +9,8 @@ The website is built with astro js and preact js. And is Mobile responsive.
 The designs are from a [challenge by frontendmentor.io](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f)
 
 > Frontendmentor is a platform offering, some free and paywalled professional designs for frontend developers to create stunning projects.
+
+View my list of all solved Frontementor challenges [here](https://github.com/Av1-Lv5/Frontendmentor-challenges)
 
 ## Clone this?
 
